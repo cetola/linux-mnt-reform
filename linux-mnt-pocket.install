@@ -5,8 +5,7 @@ post_install() {
   # If you're running LVM on LUKS, add kernel modules:
   # add_dracutmodules+=" crypt lvm "
   dracut -f /boot/initramfs-linux-testing --kver "${kernver}" --no-hostonly \
-    --add-drivers "nvme nvme_core nvme_keyring nvme_auth" \
-    --debug --verbose
+    --add-drivers "nvme nvme_core nvme_keyring nvme_auth"
   
   # Move initramfs to expected location
   if [ -f "/boot/initramfs-${kernver}.img" ]; then
@@ -34,9 +33,12 @@ post_install() {
 
 pre_upgrade() {
   local kernver="6.17.9-dirty"
+  newver="$1"
+  oldver="$2"
+
+  echo "==> Backing up kernel and DTB before upgrading from $oldver to $newver..."
   
   # Backup old files
-  echo "==> Backing up old kernel files..."
   if [ -f /boot/Image-testing ]; then
     cp /boot/Image-testing /boot/Image-old
   fi
