@@ -12,10 +12,10 @@ provides=('linux-aarch64' 'linux')
 conflicts=('linux')
 backup=('etc/modprobe.d/reform-qcacld2.conf')
 install="${pkgname}.install"
-source=("https://github.com/cetola/mnt-build/releases/download/${pkgver}-arch-mnt-pocket/kernel-${pkgver}-mnt.tar.gz"
+source=("https://github.com/cetola/mnt-build/releases/download/${pkgver}-${pkgrel}-mnt-pocket/kernel-${pkgver}-${pkgrel}-mnt.tar.gz"
         "extlinux.conf.example")
-sha256sums=('SKIP'  # Replace with actual checksum
-            'SKIP')  # Replace with actual checksum
+sha256sums=('5022cd1e4b1de08dd6c9e83b63a549415d2039864543105f167acb9500c93c0a'
+            '672b1922a43856cb6466354a1b2432c7cf8dedfa3da25c8e59a1a0dcb0c7a83e')
 options=(!strip !docs !libtool !staticlibs !emptydirs)
 
 package() {
