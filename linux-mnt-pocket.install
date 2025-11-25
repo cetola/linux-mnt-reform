@@ -1,23 +1,18 @@
 post_install() {
-  local kernver="6.17.9-dirty"
-  
+  local kernver="6.17.9-mnt-pocket"
+
   echo "==> Building initramfs for kernel ${kernver}..."
   # If you're running LVM on LUKS, add kernel modules:
   # add_dracutmodules+=" crypt lvm "
   dracut -f /boot/initramfs-linux-testing --kver "${kernver}" --no-hostonly \
     --add-drivers "nvme nvme_core nvme_keyring nvme_auth"
-  
-  # Move initramfs to expected location
-  if [ -f "/boot/initramfs-${kernver}.img" ]; then
-    mv /boot/initramfs-${kernver}.img /boot/initramfs-linux-testing
-  fi
-  
+
   echo "==> Updating module dependencies..."
   depmod "${kernver}"
-  
+
   # Create symlink for active kernel
   ln -sf "Image-linux-mnt-pocket" /boot/Image-testing
-  
+
   echo ""
   echo "==> Installation complete!"
   echo "==> Kernel image: /boot/Image-linux-mnt-pocket"
@@ -32,12 +27,11 @@ post_install() {
 }
 
 pre_upgrade() {
-  local kernver="6.17.9-dirty"
   newver="$1"
   oldver="$2"
 
   echo "==> Backing up kernel and DTB before upgrading from $oldver to $newver..."
-  
+
   # Backup old files
   if [ -f /boot/Image-testing ]; then
     cp /boot/Image-testing /boot/Image-old
@@ -54,19 +48,19 @@ pre_upgrade() {
 }
 
 post_remove() {
-  local kernver="6.17.9-dirty"
-  
+  local kernver="6.17.9-mnt-pocket"
+
   echo "==> Cleaning up kernel ${kernver}..."
-  
-  # Remove initramfs if it exists
+
   rm -f /boot/initramfs-linux-testing
-  rm -f "/boot/initramfs-${kernver}.img"
-  
+
   # Remove symlink
   rm -f /boot/Image-testing
-  
+
+  rm -f /boot/Image-linux-mnt-pocket
+
   # Note: We don't remove the DTB as it might be shared
-  
+
   echo "==> Removal complete."
   echo "==> Old backup files (if any) have been preserved:"
   echo "    /boot/Image-old"

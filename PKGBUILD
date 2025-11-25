@@ -1,8 +1,8 @@
 # Maintainer: Your Name <your.email@example.com>
 pkgname=linux-mnt-pocket
 pkgver=6.17.9
-_kernver="${pkgver}-dirty"
-pkgrel=1
+_kernver="${pkgver}-mnt-pocket"
+pkgrel=2
 pkgdesc="Linux kernel for MNT Pocket Reform (arm64)"
 arch=('aarch64')
 url="https://github.com/cetola/mnt-build"
