@@ -12,7 +12,7 @@ provides=('linux-aarch64' 'linux')
 conflicts=('linux')
 backup=('etc/modprobe.d/reform-qcacld2.conf')
 install="${pkgname}.install"
-source=("https://github.com/cetola/mnt-build/releases/download/${pkgver}-${pkgrel}-mnt-pocket/kernel-${pkgver}-${pkgrel}-mnt.tar.gz"
+source=("https://github.com/cetola/mnt-build/releases/download/${pkgver}-${pkgrel}-mnt-pocket/kernel-${pkgver}-mnt.tar.gz"
         "extlinux.conf.example")
 sha256sums=('cd2691a10b10e71c763113c0f9f451145f79eebfaeeb691a258db76fe736eb06'
             '672b1922a43856cb6466354a1b2432c7cf8dedfa3da25c8e59a1a0dcb0c7a83e')
