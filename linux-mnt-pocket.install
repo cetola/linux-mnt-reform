@@ -1,5 +1,5 @@
 post_install() {
-  local kernver="6.17.9-mnt-pocket"
+  local kernver="6.17.10-mnt-pocket"
 
   echo "==> Building initramfs for kernel ${kernver}..."
   # If you're running LVM on LUKS, add kernel modules:
@@ -48,7 +48,7 @@ pre_upgrade() {
 }
 
 post_remove() {
-  local kernver="6.17.9-mnt-pocket"
+  local kernver="6.17.10-mnt-pocket"
 
   echo "==> Cleaning up kernel ${kernver}..."
 
