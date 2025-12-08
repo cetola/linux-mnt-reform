@@ -1,6 +1,6 @@
 # Maintainer: Your Name <your.email@example.com>
 pkgname=linux-mnt-pocket
-pkgver=6.17.10
+pkgver=6.17.11
 _kernver="${pkgver}-mnt-pocket"
 pkgrel=1
 pkgdesc="Linux kernel for MNT Pocket Reform (arm64)"
@@ -14,7 +14,7 @@ backup=('etc/modprobe.d/reform-qcacld2.conf')
 install="${pkgname}.install"
 source=("https://github.com/cetola/mnt-build/releases/download/${pkgver}-${pkgrel}-mnt-pocket/kernel-${pkgver}-mnt.tar.gz"
         "extlinux.conf.example")
-sha256sums=('cd2691a10b10e71c763113c0f9f451145f79eebfaeeb691a258db76fe736eb06'
+sha256sums=('4f5850583160be1b5131cff08390b1234cebb3644eb085dbfcc512d578b9bb7d'
             '672b1922a43856cb6466354a1b2432c7cf8dedfa3da25c8e59a1a0dcb0c7a83e')
 options=(!strip !docs !libtool !staticlibs !emptydirs)
 
