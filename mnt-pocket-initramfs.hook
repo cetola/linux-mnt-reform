@@ -1,21 +1,10 @@
 [Trigger]
-Type = File
+Type = Package
 Operation = Install
 Operation = Upgrade
-Target = usr/lib/modules/*/modules.dep
+Target = linux-mnt-pocket
 
 [Action]
-Description = Backing up linux-mnt-pocket kernel files
-When = PreTransaction
-Exec = /usr/bin/mnt-pocket-backup.sh
-
-[Action]
-Description = Ensuring Image-testing symlink exists
+Description = Ensuring Image-testing symlink exists and building initramfs
 When = PostTransaction
-Exec = /bin/bash -c 'if [ -f /boot/Image-linux-mnt-pocket ] && ([ ! -L /boot/Image-testing ] || [ ! -f /boot/Image-testing ]); then ln -sf Image-linux-mnt-pocket /boot/Image-testing; fi'
-
-[Action]
-Description = Building initramfs for linux-mnt-pocket kernel
-When = PostTransaction
-Exec = /usr/bin/dracut -f /boot/initramfs-linux-testing --kver 6.17.11-mnt-pocket --no-hostonly --add-drivers "nvme nvme_core nvme_keyring nvme_auth"
-
+Exec = /bin/bash -c 'if [ -f /boot/Image-linux-mnt-pocket ] && ([ ! -L /boot/Image-testing ] || [ ! -f /boot/Image-testing ]); then ln -sf Image-linux-mnt-pocket /boot/Image-testing; fi && /usr/bin/dracut -f /boot/initramfs-linux-testing --kver 6.17.11-mnt-pocket --no-hostonly --add-drivers "nvme nvme_core nvme_keyring nvme_auth"'

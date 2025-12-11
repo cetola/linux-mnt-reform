@@ -16,6 +16,7 @@ source=(
   "kernel-${pkgver}-${pkgrel}-mnt.tar.gz::https://github.com/cetola/mnt-build/releases/download/${pkgver}-${pkgrel}-mnt-pocket/kernel-${pkgver}-${pkgrel}-mnt.tar.gz"
   "extlinux.conf.example"
   "mnt-pocket-initramfs.hook"
+  "mnt-pocket-backup.hook"
   "mnt-pocket-backup.sh"
 )
 sha256sums=(
@@ -56,6 +57,9 @@ package() {
 
   install -Dm644 "$srcdir/mnt-pocket-initramfs.hook" \
     "$pkgdir/usr/share/libalpm/hooks/mnt-pocket-initramfs.hook"
+
+  install -Dm644 "$srcdir/mnt-pocket-backup.hook" \
+    "$pkgdir/usr/share/libalpm/hooks/mnt-pocket-backup.hook"
 
   install -Dm755 "$srcdir/mnt-pocket-backup.sh" \
     "$pkgdir/usr/bin/mnt-pocket-backup.sh"

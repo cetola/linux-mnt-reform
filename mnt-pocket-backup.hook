@@ -1,0 +1,10 @@
+[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Target = linux-mnt-pocket
+
+[Action]
+Description = Backing up linux-mnt-pocket kernel files
+When = PreTransaction
+Exec = /usr/bin/mnt-pocket-backup.sh
