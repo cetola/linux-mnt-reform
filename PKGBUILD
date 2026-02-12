@@ -56,8 +56,48 @@ package() {
   install -Dm644 arch/arm64/boot/Image \
     "$pkgdir/boot/Image-${pkgname}"
 
-  install -Dm644 "imx8mp-mnt-pocket-reform-${pkgver}.dtb" \
-    "$pkgdir/boot/imx8mp-mnt-pocket-reform.dtb"
+  # Create DTBs directory
+  install -dm755 "$pkgdir/boot/dtbs"
+
+  # Install all DTB files from the root of the archive
+  for dtb in *.dtb; do
+    if [ -f "$dtb" ]; then
+      install -Dm644 "$dtb" "$pkgdir/boot/dtbs/$dtb"
+    fi
+  done
+
+  # Determine which DTB to symlink based on device model
+  if [ -f /proc/device-tree/model ]; then
+    model=$(cat /proc/device-tree/model)
+
+    case "$model" in
+      "MNT Pocket Reform with BPI-CM4 Module")
+        dtb_target="meson-g12b-bananapi-cm4-mnt-pocket-reform.dtb"
+        ;;
+      "MNT Pocket Reform with i.MX8MP Module")
+        dtb_target="imx8mp-mnt-pocket-reform.dtb"
+        ;;
+      "MNT Reform Next with RCORE RK3588 Module")
+        dtb_target="rk3588-mnt-reform-next.dtb"
+        ;;
+      *)
+        echo "Warning: Unknown device model: $model"
+        echo "No DTB symlink will be created"
+        dtb_target=""
+        ;;
+    esac
+
+    # Create symlink if a target was determined
+    if [ -n "$dtb_target" ] && [ -f "$pkgdir/boot/dtbs/$dtb_target" ]; then
+      ln -sf "dtbs/$dtb_target" "$pkgdir/boot/mnt-pocket-reform-${pkgver}.dtb"
+      echo "Created symlink to $dtb_target for model: $model"
+    elif [ -n "$dtb_target" ]; then
+      echo "Warning: Target DTB $dtb_target not found in package"
+    fi
+  else
+    echo "Warning: /proc/device-tree/model not found"
+    echo "No DTB symlink will be created"
+  fi
 
   install -Dm644 "$srcdir/extlinux.conf.example" \
     "$pkgdir/usr/share/doc/${pkgname}/extlinux.conf.example"
