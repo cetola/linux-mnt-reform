@@ -8,7 +8,7 @@ label l0
         menu label Arch Testing mnt-reform-arm64
         linux /Image-testing
         initrd /initramfs-linux-testing
-        fdt /imx8mp-mnt-pocket-reform.dtb
+        fdt /mnt-reform.dtb
 
         append   ro root=/dev/nvme0n1p1 no_console_suspend cryptomgr.notests ${bootargs} console=tty1 loglevel=3
 
@@ -16,6 +16,6 @@ label l0r
         menu label Arch Testing mnt-reform-arm64 (rescue target)
         linux /Image-old
         initrd /initramfs-linux-old
-        fdt /imx8mp-mnt-pocket-reform-old.dtb
+        fdt /mnt-reform-old.dtb
         append   ro root=/dev/nvme0n1p1 no_console_suspend cryptomgr.notests ${bootargs} console=tty1 loglevel=3
 

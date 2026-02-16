@@ -87,10 +87,11 @@ package() {
         ;;
     esac
 
-    # Create symlink if a target was determined
-    if [ -n "$dtb_target" ] && [ -f "$pkgdir/boot/dtbs/$dtb_target" ]; then
-      ln -sf "dtbs/$dtb_target" "$pkgdir/boot/mnt-pocket-reform-${pkgver}.dtb"
-      echo "Created symlink to $dtb_target for model: $model"
+  # Create symlink if a target was determined
+  if [ -n "$dtb_target" ] && [ -f "$pkgdir/boot/dtbs/$dtb_target" ]; then
+      ln -sf "dtbs/$dtb_target" "$pkgdir/boot/mnt-reform-${pkgver}.dtb"
+      ln -sf "mnt-reform-${pkgver}.dtb" "$pkgdir/boot/mnt-reform.dtb"
+      echo "Created symlinks to $dtb_target for model: $model"
     elif [ -n "$dtb_target" ]; then
       echo "Warning: Target DTB $dtb_target not found in package"
     fi
@@ -108,4 +109,3 @@ package() {
   install -Dm755 "$srcdir/mnt-pocket-initramfs.sh" \
     "$pkgdir/usr/lib/linux-mnt-pocket/mnt-pocket-initramfs.sh"
 }
-

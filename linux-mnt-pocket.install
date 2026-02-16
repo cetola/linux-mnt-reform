@@ -14,9 +14,15 @@ pre_upgrade() {
         echo "Backed up Image-testing -> /boot/Image-old"
     fi
 
-    if [ -f /boot/imx8mp-mnt-pocket-reform.dtb ]; then
-        cp /boot/imx8mp-mnt-pocket-reform.dtb /boot/imx8mp-mnt-pocket-reform-old.dtb
-        echo "Backed up imx8mp-mnt-pocket-reform.dtb -> /boot/imx8mp-mnt-pocket-reform-old.dtb"
+    if [ -L /boot/mnt-reform.dtb ]; then
+        DTB_TARGET=$(readlink -f /boot/mnt-reform.dtb)
+        if [ -f "$DTB_TARGET" ]; then
+            cp "$DTB_TARGET" /boot/mnt-reform-old.dtb
+            echo "Backed up mnt-reform.dtb target: $DTB_TARGET -> /boot/mnt-reform-old.dtb"
+        fi
+    elif [ -f /boot/mnt-reform.dtb ]; then
+        cp /boot/mnt-reform.dtb /boot/mnt-reform-old.dtb
+        echo "Backed up mnt-reform.dtb -> /boot/mnt-reform-old.dtb"
     fi
 
     if [ -f /boot/initramfs-linux-testing ]; then
