@@ -72,13 +72,13 @@ package() {
 
     case "$model" in
       "MNT Pocket Reform with BPI-CM4 Module")
-        dtb_target="meson-g12b-bananapi-cm4-mnt-pocket-reform.dtb"
+        dtb_target="meson-g12b-bananapi-cm4-mnt-pocket-reform-${pkgver}.dtb"
         ;;
       "MNT Pocket Reform with i.MX8MP Module")
-        dtb_target="imx8mp-mnt-pocket-reform.dtb"
+        dtb_target="imx8mp-mnt-pocket-reform-${pkgver}.dtb"
         ;;
       "MNT Reform Next with RCORE RK3588 Module")
-        dtb_target="rk3588-mnt-reform-next.dtb"
+        dtb_target="rk3588-mnt-reform-next-${pkgver}.dtb"
         ;;
       *)
         echo "Warning: Unknown device model: $model"
