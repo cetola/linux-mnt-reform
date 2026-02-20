@@ -1,10 +1,10 @@
 # Maintainer: Stephano Cetola <stephanoc@gmail.com>
 
-pkgname=linux-mnt-pocket
+pkgname=linux-mnt-reform
 pkgver=6.18.10
 pkgrel=1
-_kernver="${pkgver}-mnt-pocket"
-pkgdesc="Linux kernel for MNT Pocket Reform (arm64)"
+_kernver="${pkgver}-mnt-reform"
+pkgdesc="Linux kernel for MNT Reform (arm64)"
 arch=('aarch64')
 url="https://github.com/cetola/mnt-build"
 license=('GPL2')
@@ -14,10 +14,10 @@ conflicts=('linux')
 backup=('etc/modprobe.d/reform-qcacld2.conf')
 install="${pkgname}.install"
 source=(
-  "kernel-${pkgver}-${pkgrel}-mnt.tar.gz::https://github.com/cetola/mnt-build/releases/download/${pkgver}-${pkgrel}-mnt-pocket/kernel-${pkgver}-${pkgrel}-mnt.tar.gz"
+  "kernel-${pkgver}-${pkgrel}-mnt.tar.gz::https://github.com/cetola/mnt-build/releases/download/${pkgver}-${pkgrel}-mnt-reform/kernel-${pkgver}-${pkgrel}-mnt.tar.gz"
   "extlinux.conf.example"
-  "mnt-pocket-initramfs.hook"
-  "mnt-pocket-initramfs.sh"
+  "mnt-reform-initramfs.hook"
+  "mnt-reform-initramfs.sh"
 )
 sha256sums=(
   'f5278180a54711f1e3170699da53f9675e0f7a5af48535357858ab9fa7619aed'
@@ -103,9 +103,9 @@ package() {
   install -Dm644 "$srcdir/extlinux.conf.example" \
     "$pkgdir/usr/share/doc/${pkgname}/extlinux.conf.example"
 
-  install -Dm644 "$srcdir/mnt-pocket-initramfs.hook" \
-    "$pkgdir/usr/share/libalpm/hooks/mnt-pocket-initramfs.hook"
+  install -Dm644 "$srcdir/mnt-reform-initramfs.hook" \
+    "$pkgdir/usr/share/libalpm/hooks/mnt-reform-initramfs.hook"
 
-  install -Dm755 "$srcdir/mnt-pocket-initramfs.sh" \
-    "$pkgdir/usr/lib/linux-mnt-pocket/mnt-pocket-initramfs.sh"
+  install -Dm755 "$srcdir/mnt-reform-initramfs.sh" \
+    "$pkgdir/usr/lib/linux-mnt-reform/mnt-reform-initramfs.sh"
 }

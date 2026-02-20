@@ -2,10 +2,10 @@
 set -euo pipefail
 shopt -s nullglob
 
-KMOD_DIRS=(/usr/lib/modules/*-mnt-pocket)
+KMOD_DIRS=(/usr/lib/modules/*-mnt-reform)
 
 if (( ${#KMOD_DIRS[@]} == 0 )); then
-  echo "==> No linux-mnt-pocket kernels found, skipping initramfs"
+  echo "==> No linux-mnt-reform kernels found, skipping initramfs"
   exit 0
 fi
 
@@ -24,8 +24,8 @@ KVER_LATEST="$(
 echo "==> Using latest kernel: $KVER_LATEST"
 
 # Maintain testing symlink
-if [ -f /boot/Image-linux-mnt-pocket ]; then
-  ln -sf Image-linux-mnt-pocket /boot/Image-testing
+if [ -f /boot/Image-linux-mnt-reform]; then
+  ln -sf Image-linux-mnt-reform /boot/Image-testing
 fi
 
 echo "==> Building initramfs for $KVER_LATEST"

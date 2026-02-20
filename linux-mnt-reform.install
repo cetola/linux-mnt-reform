@@ -1,7 +1,7 @@
 # Maintainer: Stephano Cetola <stephanoc@gmail.com>
 
 pre_upgrade() {
-    echo "==> Running pre-install backup for linux-mnt-pocket..."
+    echo "==> Running pre-install backup for linux-mnt-reform..."
 
     if [ -L /boot/Image-testing ]; then
         IMAGE_TARGET=$(readlink -f /boot/Image-testing)
