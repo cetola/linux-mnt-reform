@@ -24,7 +24,7 @@ KVER_LATEST="$(
 echo "==> Using latest kernel: $KVER_LATEST"
 
 # Maintain testing symlink
-if [ -f /boot/Image-linux-mnt-reform]; then
+if [ -f /boot/Image-linux-mnt-reform ]; then
   ln -sf Image-linux-mnt-reform /boot/Image-testing
 fi
 

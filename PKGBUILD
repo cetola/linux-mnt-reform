@@ -1,7 +1,7 @@
 # Maintainer: Stephano Cetola <stephanoc@gmail.com>
 
 pkgname=linux-mnt-reform
-pkgver=6.18.10
+pkgver=6.18.12
 pkgrel=1
 _kernver="${pkgver}-mnt-reform"
 pkgdesc="Linux kernel for MNT Reform (arm64)"
@@ -20,10 +20,10 @@ source=(
   "mnt-reform-initramfs.sh"
 )
 sha256sums=(
-  'f5278180a54711f1e3170699da53f9675e0f7a5af48535357858ab9fa7619aed'
+  '9db16600f657a64d8608bc99dd54200ab398ec0df3c5d05aabf71da150256e99'
   'b83bfbb4eea8d7186d52f1157966e6761e2a159799a8b2bc84677b2624aeea9c'
-  '4a799cdb15bb62469056daccbb6465de5477eb0128f0430608e0e4b99b651eba'
-  'ee36d2090bfc55e3fddfdfba7767a6af1cbd294ab421a5a10d43757290fb5e58'
+  'ff6aeb3704c23e690dbf975602266fa03a8c0c532808bd7d0af9eb05e4afd3ad'
+  '89d69f287c48fe918b41fc45db7a7a570435998ac4bce28e13fa117faa78be0f'
 )
 
 options=(!strip !docs !emptydirs)
