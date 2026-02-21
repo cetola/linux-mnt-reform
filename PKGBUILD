@@ -1,7 +1,7 @@
 # Maintainer: Stephano Cetola <stephanoc@gmail.com>
 
 pkgname=linux-mnt-reform
-pkgver=6.18.12
+pkgver=6.18.13
 pkgrel=1
 _kernver="${pkgver}-mnt-reform"
 pkgdesc="Linux kernel for MNT Reform (arm64)"
@@ -19,7 +19,7 @@ source=(
   "mnt-reform-initramfs.sh"
 )
 sha256sums=(
-  '9db16600f657a64d8608bc99dd54200ab398ec0df3c5d05aabf71da150256e99'
+  '5ffce8b6ed8473dcf9b2c5581d6fa9f5da0e1efb6301e0650e82f08de6445474'
   'b83bfbb4eea8d7186d52f1157966e6761e2a159799a8b2bc84677b2624aeea9c'
   'ff6aeb3704c23e690dbf975602266fa03a8c0c532808bd7d0af9eb05e4afd3ad'
   '89d69f287c48fe918b41fc45db7a7a570435998ac4bce28e13fa117faa78be0f'
