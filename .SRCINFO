@@ -8,6 +8,7 @@ pkgbase = linux-mnt-reform
 	license = GPL2
 	depends = dracut
 	depends = kmod
+	depends = cpio
 	provides = linux
 	provides = linux-aarch64
 	conflicts = linux
