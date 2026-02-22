@@ -1,0 +1,26 @@
+pkgbase = linux-mnt-reform
+	pkgdesc = Linux kernel for MNT Reform (arm64)
+	pkgver = 6.18.13
+	pkgrel = 1
+	url = https://github.com/cetola/mnt-build
+	install = linux-mnt-reform.install
+	arch = aarch64
+	license = GPL2
+	depends = dracut
+	depends = kmod
+	provides = linux
+	provides = linux-aarch64
+	conflicts = linux
+	options = !strip
+	options = !docs
+	options = !emptydirs
+	source = kernel-6.18.13-1-mnt.tar.gz::https://github.com/cetola/mnt-build/releases/download/6.18.13-1-mnt-reform/kernel-6.18.13-1-mnt.tar.gz
+	source = extlinux.conf.example
+	source = mnt-reform-initramfs.hook
+	source = mnt-reform-initramfs.sh
+	sha256sums = 5ffce8b6ed8473dcf9b2c5581d6fa9f5da0e1efb6301e0650e82f08de6445474
+	sha256sums = b83bfbb4eea8d7186d52f1157966e6761e2a159799a8b2bc84677b2624aeea9c
+	sha256sums = ff6aeb3704c23e690dbf975602266fa03a8c0c532808bd7d0af9eb05e4afd3ad
+	sha256sums = 89d69f287c48fe918b41fc45db7a7a570435998ac4bce28e13fa117faa78be0f
+
+pkgname = linux-mnt-reform
