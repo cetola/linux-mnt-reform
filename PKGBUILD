@@ -31,6 +31,7 @@ build() {
 package_linux-mnt-reform() {
   pkgdesc='Linux kernel for MNT Reform (arm64)'
   depends=('dracut' 'kmod' 'cpio')
+  optdepends=('linux-mnt-reform-headers: for building modules')
   provides=('linux' 'linux-aarch64')
   conflicts=('linux')
   install='linux-mnt-reform.install'
