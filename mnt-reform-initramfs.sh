@@ -32,5 +32,7 @@ echo "==> Building initramfs for $KVER_LATEST"
 /usr/bin/dracut -f /boot/initramfs-linux-testing \
   --kver "$KVER_LATEST" \
   --no-hostonly \
-  --add-drivers "nvme nvme_core nvme_keyring nvme_auth"
+  --add "initqueue hwdb" \
+  --omit "lvm network-manager network net-lib crypt dm mdraid nvdimm qemu qemu-net systemd-cryptsetup fido2 pkcs11 cifs lunmask resume virtfs virtiofs drm plymouth" \
+  --add-drivers 'nvme nvme_core nvme_keyring nvme_auth'
 
