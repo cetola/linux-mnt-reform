@@ -1,27 +1,38 @@
 pkgbase = linux-mnt-reform
-	pkgdesc = Linux kernel for MNT Reform (arm64)
-	pkgver = 6.18.15
+	pkgver = 6.18.16
 	pkgrel = 1
 	url = https://github.com/cetola/mnt-build
-	install = linux-mnt-reform.install
 	arch = aarch64
 	license = GPL2
-	depends = dracut
-	depends = kmod
-	depends = cpio
-	provides = linux
-	provides = linux-aarch64
-	conflicts = linux
 	options = !strip
 	options = !docs
 	options = !emptydirs
-	source = kernel-6.18.15-1-mnt.tar.gz::https://github.com/cetola/mnt-build/releases/download/6.18.15-1-mnt-reform/kernel-6.18.15-1-mnt.tar.gz
+	source = kernel-6.18.16-1-mnt.tar.gz::https://github.com/cetola/mnt-build/releases/download/6.18.16-1-mnt-reform/kernel-6.18.16-1-mnt.tar.gz
+	source = headers-6.18.16-1-mnt.tar.gz::https://github.com/cetola/mnt-build/releases/download/6.18.16-1-mnt-reform/headers-6.18.16-1-mnt.tar.gz
 	source = extlinux.conf.example
 	source = mnt-reform-initramfs.hook
 	source = mnt-reform-initramfs.sh
-	sha256sums = de2908b51d7c792cc85ddeeac7a37b14d55f50ddabd7a46c26155b4f47097cc2
+	sha256sums = 84b3b876897bfc5f38318909b9e1d6189878acfa57cb3ce0f54d0d3c274e3e28
+	sha256sums = ebf52803cf900bf67df197abf55f6d850009d81fe3e3c5a27daecdbe32bfc924
 	sha256sums = b83bfbb4eea8d7186d52f1157966e6761e2a159799a8b2bc84677b2624aeea9c
 	sha256sums = ff6aeb3704c23e690dbf975602266fa03a8c0c532808bd7d0af9eb05e4afd3ad
-	sha256sums = 89d69f287c48fe918b41fc45db7a7a570435998ac4bce28e13fa117faa78be0f
+	sha256sums = 2ced29f2a09d2e3d240872bf7c95324dc52fe952bfc7b0a0887c795c82fb2b18
 
 pkgname = linux-mnt-reform
+	pkgdesc = Linux kernel for MNT Reform (arm64)
+	install = linux-mnt-reform.install
+	depends = dracut
+	depends = kmod
+	depends = cpio
+	optdepends = linux-mnt-reform-headers: for building modules
+	provides = linux
+	provides = linux-aarch64
+	conflicts = linux
+
+pkgname = linux-mnt-reform-headers
+	pkgdesc = Header files and scripts for building modules for linux-mnt-reform kernel
+	depends = perl
+	depends = linux-mnt-reform=6.18.16-1
+	provides = linux-headers=6.18.16
+	conflicts = linux-aarch64-headers
+	conflicts = linux-headers
