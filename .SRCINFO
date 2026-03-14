@@ -1,5 +1,5 @@
 pkgbase = linux-mnt-reform-bin
-	pkgver = 6.18.16
+	pkgver = 6.19.8
 	pkgrel = 1
 	url = https://github.com/cetola/mnt-build
 	arch = aarch64
@@ -7,13 +7,13 @@ pkgbase = linux-mnt-reform-bin
 	options = !strip
 	options = !docs
 	options = !emptydirs
-	source = kernel-6.18.16-1-mnt.tar.gz::https://github.com/cetola/mnt-build/releases/download/6.18.16-1-mnt-reform/kernel-6.18.16-1-mnt.tar.gz
-	source = headers-6.18.16-1-mnt.tar.gz::https://github.com/cetola/mnt-build/releases/download/6.18.16-1-mnt-reform/headers-6.18.16-1-mnt.tar.gz
+	source = kernel-6.19.8-1-mnt.tar.gz::https://github.com/cetola/mnt-build/releases/download/6.19.8-1-mnt-reform/kernel-6.19.8-1-mnt.tar.gz
+	source = headers-6.19.8-1-mnt.tar.gz::https://github.com/cetola/mnt-build/releases/download/6.19.8-1-mnt-reform/headers-6.19.8-1-mnt.tar.gz
 	source = extlinux.conf.example
 	source = mnt-reform-initramfs.hook
 	source = mnt-reform-initramfs.sh
-	sha256sums = 84b3b876897bfc5f38318909b9e1d6189878acfa57cb3ce0f54d0d3c274e3e28
-	sha256sums = ebf52803cf900bf67df197abf55f6d850009d81fe3e3c5a27daecdbe32bfc924
+	sha256sums = ed4d80a78d379cce1e19026f5bef79e96c62ae1dde31db52c2ccefaad72189e1
+	sha256sums = 741d9b3ae965810edac4aacf24ac13ecd398e73077d86bf81d925e23aca72c60
 	sha256sums = b83bfbb4eea8d7186d52f1157966e6761e2a159799a8b2bc84677b2624aeea9c
 	sha256sums = 24e36fc74f7aa27fe699e5eac923c14ae80c7bc85038cfab3d8cd93148d7cb3e
 	sha256sums = 2ced29f2a09d2e3d240872bf7c95324dc52fe952bfc7b0a0887c795c82fb2b18
@@ -26,12 +26,12 @@ pkgname = linux-mnt-reform-bin
 	depends = kmod
 	depends = cpio
 	optdepends = linux-mnt-reform-bin-headers: for building modules
-	provides = linux=6.18.16
+	provides = linux=6.19.8
 	conflicts = linux
 
 pkgname = linux-mnt-reform-bin-headers
 	pkgdesc = Header files and scripts for building modules for linux-mnt-reform-bin kernel
 	depends = perl
-	depends = linux-mnt-reform-bin=6.18.16-1
-	provides = linux-headers=6.18.16
+	depends = linux-mnt-reform-bin=6.19.8-1
+	provides = linux-headers=6.19.8
 	conflicts = linux-mnt-reform-headers
