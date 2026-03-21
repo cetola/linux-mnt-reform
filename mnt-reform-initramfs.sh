@@ -23,13 +23,13 @@ KVER_LATEST="$(
 
 echo "==> Using latest kernel: $KVER_LATEST"
 
-# Maintain testing symlink
+# Maintain symlink
 if [ -f /boot/Image-linux-mnt-reform ]; then
-  ln -sf Image-linux-mnt-reform /boot/Image-testing
+  ln -sf Image-linux-mnt-reform /boot/Image
 fi
 
 echo "==> Building initramfs for $KVER_LATEST"
-/usr/bin/dracut -f /boot/initramfs-linux-testing \
+/usr/bin/dracut -f /boot/initramfs-linux \
   --kver "$KVER_LATEST" \
   --no-hostonly \
   --add "initqueue hwdb" \

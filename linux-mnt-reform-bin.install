@@ -42,15 +42,15 @@ _select_dtb_links() {
 pre_upgrade() {
     echo "==> Running pre-install backup for linux-mnt-reform..."
 
-    if [ -L /boot/Image-testing ]; then
-        IMAGE_TARGET=$(readlink -f /boot/Image-testing)
+    if [ -L /boot/Image ]; then
+        IMAGE_TARGET=$(readlink -f /boot/Image)
         if [ -f "$IMAGE_TARGET" ]; then
             cp "$IMAGE_TARGET" /boot/Image-old
-            echo "Backed up Image-testing target: $IMAGE_TARGET -> /boot/Image-old"
+            echo "Backed up Image target: $IMAGE_TARGET -> /boot/Image-old"
         fi
-    elif [ -f /boot/Image-testing ]; then
-        cp /boot/Image-testing /boot/Image-old
-        echo "Backed up Image-testing -> /boot/Image-old"
+    elif [ -f /boot/Image ]; then
+        cp /boot/Image /boot/Image-old
+        echo "Backed up Image -> /boot/Image-old"
     fi
 
     if [ -L /boot/mnt-reform.dtb ]; then
@@ -64,9 +64,9 @@ pre_upgrade() {
         echo "Backed up mnt-reform.dtb -> /boot/mnt-reform-old.dtb"
     fi
 
-    if [ -f /boot/initramfs-linux-testing ]; then
-        cp /boot/initramfs-linux-testing /boot/initramfs-linux-old
-        echo "Backed up initramfs-linux-testing -> /boot/initramfs-linux-old"
+    if [ -f /boot/initramfs-linux ]; then
+        cp /boot/initramfs-linux /boot/initramfs-linux-old
+        echo "Backed up initramfs-linux -> /boot/initramfs-linux-old"
     fi
 }
 

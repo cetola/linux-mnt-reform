@@ -14,9 +14,9 @@ pkgbase = linux-mnt-reform-bin
 	source = mnt-reform-initramfs.sh
 	sha256sums = 2bf5498d7f839a0163445f06fd864310cbf7f9878a26a3fb6c1718488b7cfba1
 	sha256sums = 503609e9458ece449d20f6ce6a7dd0c497417c17f728f568c11851d0da4cd6bc
-	sha256sums = b83bfbb4eea8d7186d52f1157966e6761e2a159799a8b2bc84677b2624aeea9c
+	sha256sums = 8a15cec00fc571b7b62dba4ad9aa7b0132fe837dca3a424828bb19a37f5d3e58
 	sha256sums = 24e36fc74f7aa27fe699e5eac923c14ae80c7bc85038cfab3d8cd93148d7cb3e
-	sha256sums = 2ced29f2a09d2e3d240872bf7c95324dc52fe952bfc7b0a0887c795c82fb2b18
+	sha256sums = 4c3f37067e72d40b02c246fc4971869ca7a096a0cfe9b7c9edefb13426ffcaee
 
 pkgname = linux-mnt-reform-bin
 	pkgdesc = Linux kernel for MNT Reform (arm64)
