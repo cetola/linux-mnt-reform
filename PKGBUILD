@@ -2,7 +2,7 @@
 
 pkgbase=linux-mnt-reform-bin
 pkgname=('linux-mnt-reform-bin' 'linux-mnt-reform-bin-headers')
-pkgver=6.19.9
+pkgver=6.19.10
 pkgrel=1
 _kernver="${pkgver}-mnt-reform"
 arch=('aarch64')
@@ -17,8 +17,8 @@ source=(
   'mnt-reform-initramfs.sh'
 )
 sha256sums=(
-  '2bf5498d7f839a0163445f06fd864310cbf7f9878a26a3fb6c1718488b7cfba1'
-  '503609e9458ece449d20f6ce6a7dd0c497417c17f728f568c11851d0da4cd6bc'
+  'b12f0db1d14a8d80a66c689899833d0172515855621579349d572b466dce129e'
+  '218cdec67f6f82fe1971e80c3b4f003823113a43fff53b7e7c9270e86aafba73'
   '8a15cec00fc571b7b62dba4ad9aa7b0132fe837dca3a424828bb19a37f5d3e58'
   '24e36fc74f7aa27fe699e5eac923c14ae80c7bc85038cfab3d8cd93148d7cb3e'
   '4c3f37067e72d40b02c246fc4971869ca7a096a0cfe9b7c9edefb13426ffcaee'
